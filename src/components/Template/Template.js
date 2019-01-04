@@ -1,22 +1,17 @@
 import React from 'react';
 import classes from './Template.css'  
+import Resource from '../Resource/Resource.js'
 
 const template = ( props ) =>{
-
+    // let resources = <Resources value={props.value} />
 
 
     return (
         <div className={classes.Template}>
             <ul>
                 <li>
-                    <span>Resources</span>
-                    <input type="text"></input>
-                    <input className={classes.CircleButton} type="button" value='+' 
-                        onClick={props.clicked} ></input>
-                    <span className={classes.Example}>
-                        e.g. Accounts, Locations
-                    </span>
-
+                    <Resource clicked={ props.clicked } />
+                    {/* {resources} */}
                 </li>
                 <li>
                     <span>Methods</span>
