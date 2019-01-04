@@ -2,14 +2,21 @@ import React from 'react';
 import classes from './Template.css'  
 
 const template = ( props ) =>{
+
+
+
     return (
-        <div>
+        <div className={classes.Template}>
             <ul>
                 <li>
                     <span>Resources</span>
                     <input type="text"></input>
-                    <input className={classes.CircleButton} type="button" value='+'></input>
-                    e.g. 
+                    <input className={classes.CircleButton} type="button" value='+' 
+                        onClick={props.clicked} ></input>
+                    <span className={classes.Example}>
+                        e.g. Accounts, Locations
+                    </span>
+
                 </li>
                 <li>
                     <span>Methods</span>
