@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Template.css'  
 import Resource from '../Resource/Resource.js'
 import ResourceLabels from '../ResourceLabels/ResourceLabels.js'
+import Methods from '../Methods/Methods.js'
 
 const template = ( props ) =>{
     // let resources = <Resources value={props.value} />
@@ -19,8 +20,8 @@ const template = ( props ) =>{
                 </li>
                 <li>
                     <span>Methods</span>
-                    <input type="text"></input>
-                    e.g. 
+                    <Methods methodOptions={props.methodOptions}
+                        changed={ props.methodChanged} />
                 </li>
                 <li>
                     <span>Version</span>

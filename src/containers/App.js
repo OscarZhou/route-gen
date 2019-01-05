@@ -7,7 +7,15 @@ import classes from './App.css';
 class App extends Component {
   state = {
       resourceInput: '',
-      resourceLabels:[]
+      resourceLabels:[],
+      methodOptions:[
+        {id: "1", method:"DELETE", checked:false},
+        {id: "2", method:"GET", checked:false},
+        {id: "3", method:"HEAD", checked:false},
+        {id: "4", method:"OPTIONS", checked:false},
+        {id: "5", method:"PATCH", checked:false},
+        {id: "6", method:"PUT", checked:false}
+      ]
   }
 
   appendResourceHandler = () =>{
@@ -38,6 +46,22 @@ class App extends Component {
     event.target.value= ""
   }
 
+  methodChangedHandler = (event, id) => {
+    const methodIndex = this.state.methodOptions.findIndex(p => {
+      return p.id === id;
+    });
+
+    let methodOption = {...this.state.methodOptions[methodIndex]};
+    methodOption.checked = !methodOption.checked;
+    const methodOptions = [...this.state.methodOptions];
+    methodOptions[methodIndex] = methodOption;
+    this.setState({
+      methodOptions: methodOptions
+    });
+
+    alert(methodIndex)
+  }
+
   render() {
 
     return (
@@ -47,7 +71,9 @@ class App extends Component {
           changed={this.resourceChangedHandler}
           focused={this.focusResourceHandler}
           resourceLabelDeleted={this.deleteResourceHandler}
-          resourceLabels={this.state.resourceLabels} />
+          resourceLabels={this.state.resourceLabels}
+          methodChanged={this.state.methodChangedHandler}
+          methodOptions={this.state.methodOptions} />
 
       </div>
     );
