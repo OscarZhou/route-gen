@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './Template.css'  
 import Resource from '../Resource/Resource.js'
+import ResourceLabels from '../ResourceLabels/ResourceLabels.js'
 
 const template = ( props ) =>{
     // let resources = <Resources value={props.value} />
-
 
 
     return (
@@ -12,8 +12,9 @@ const template = ( props ) =>{
             <ul>
                 <li>
                     <Resource clicked={ props.clicked } 
-                        changed={ props.changed } />
-                    {/* {resources} */}
+                        changed={ props.changed }
+                        focused={ props.focused } />
+                    <ResourceLabels resourceLabels={props.resourceLabels} />
                 </li>
                 <li>
                     <span>Methods</span>

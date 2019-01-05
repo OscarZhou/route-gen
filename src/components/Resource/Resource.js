@@ -11,7 +11,8 @@ const resource = ( props ) => {
         <div>
             <span>Resources</span>
             <input type="text" 
-                onChange={props.changed}></input>
+                onChange={props.changed}
+                onFocus={props.focused} ></input>
             <input className={classes.CircleButton} 
                 type="button" 
                 value='+' 

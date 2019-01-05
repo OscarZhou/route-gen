@@ -6,18 +6,28 @@ import classes from './App.css';
 
 class App extends Component {
   state = {
-      resourceInput: ''
+      resourceInput: '',
+      resourceLabels:[]
   }
 
-  appendResourceHandler = (event) =>{
-    
-    alert(this.state.resourceInput)
+  appendResourceHandler = () =>{
+    let resourceLabels = this.state.resourceLabels.slice();
+    resourceLabels.push(this.state.resourceInput)
+    this.setState({
+      resourceLabels:resourceLabels,
+      resourceInput: ''
+    })
+
   }
 
   resourceChangedHandler = (event) =>{
     this.setState({
       resourceInput: event.target.value
     })
+  }
+
+  focusResourceHandler = (event) =>{
+    event.target.value= ""
   }
 
   render() {
@@ -27,7 +37,8 @@ class App extends Component {
         <Template 
           clicked={this.appendResourceHandler} 
           changed={this.resourceChangedHandler}
-          value={this.resource} />
+          focused={this.focusResourceHandler}
+          resourceLabels={this.state.resourceLabels} />
 
       </div>
     );
