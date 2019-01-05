@@ -12,12 +12,20 @@ class App extends Component {
 
   appendResourceHandler = () =>{
     let resourceLabels = this.state.resourceLabels.slice();
-    resourceLabels.push(this.state.resourceInput)
-    this.setState({
-      resourceLabels:resourceLabels,
-      resourceInput: ''
-    })
+    if (this.state.resourceInput != ""){
+      resourceLabels.push(this.state.resourceInput)
+      this.setState({
+        resourceLabels:resourceLabels,
+      })
+    }
+  }
 
+  deleteResourceHandler = (resourceLabelIndex) => {
+    const resourceLabels = [...this.state.resourceLabels]
+    resourceLabels.splice(resourceLabelIndex, 1);
+    this.setState({
+      resourceLabels:resourceLabels
+    })
   }
 
   resourceChangedHandler = (event) =>{
@@ -38,6 +46,7 @@ class App extends Component {
           clicked={this.appendResourceHandler} 
           changed={this.resourceChangedHandler}
           focused={this.focusResourceHandler}
+          resourceLabelDeleted={this.deleteResourceHandler}
           resourceLabels={this.state.resourceLabels} />
 
       </div>

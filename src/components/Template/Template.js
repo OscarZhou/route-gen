@@ -14,7 +14,8 @@ const template = ( props ) =>{
                     <Resource clicked={ props.clicked } 
                         changed={ props.changed }
                         focused={ props.focused } />
-                    <ResourceLabels resourceLabels={props.resourceLabels} />
+                    <ResourceLabels resourceLabels={props.resourceLabels}
+                        clicked={ props.resourceLabelDeleted } />
                 </li>
                 <li>
                     <span>Methods</span>
