@@ -6,11 +6,13 @@ const template = ( props ) =>{
     // let resources = <Resources value={props.value} />
 
 
+
     return (
         <div className={classes.Template}>
             <ul>
                 <li>
-                    <Resource clicked={ props.clicked } />
+                    <Resource clicked={ props.clicked } 
+                        changed={ props.changed } />
                     {/* {resources} */}
                 </li>
                 <li>

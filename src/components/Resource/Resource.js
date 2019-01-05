@@ -10,13 +10,14 @@ const resource = ( props ) => {
     return (
         <div>
             <span>Resources</span>
-            <input type="text"></input>
+            <input type="text" 
+                onChange={props.changed}></input>
             <input className={classes.CircleButton} 
                 type="button" 
                 value='+' 
                 onClick={props.clicked} ></input>
             <span className={classes.Example}>
-                e.g. Accounts, Locations
+                <b>e.g.</b> Accounts, Locations
             </span>
         </div>
     )
