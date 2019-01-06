@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import './App.css';
 import Template from '../components/Template/Template.js'
 import classes from './App.css';
@@ -20,7 +19,7 @@ class App extends Component {
 
   appendResourceHandler = () =>{
     let resourceLabels = this.state.resourceLabels.slice();
-    if (this.state.resourceInput != ""){
+    if (this.state.resourceInput !== ""){
       resourceLabels.push(this.state.resourceInput)
       this.setState({
         resourceLabels:resourceLabels,
@@ -65,17 +64,17 @@ class App extends Component {
     });
   }
 
-  displayStateHandler = () =>{
-    this.state.methodOptions.map((option, index) => {
-      console.log(option.id)
-      console.log(option.metod)
-      console.log(option.checked)
-
-    })
+  testHandler = () =>{
+    alert("11111");
+    let states = this.state.methodOptions.map((option) => {
+      return (
+        <span>{option.id}+{option.method}+{option.checked}</span>
+      )
+    });
+    alert(states);
   }
 
   render() {
-
     return (
       <div className={classes.App}>
         <Template 
@@ -86,7 +85,7 @@ class App extends Component {
           resourceLabels={this.state.resourceLabels}
           methodClicked={this.state.methodClickedHandler}
           methodOptions={this.state.methodOptions}
-          displayState={this.state.displayStateHandler} />
+          test={this.state.testHandler} />
 
       </div>
     );

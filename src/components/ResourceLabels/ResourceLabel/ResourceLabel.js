@@ -5,6 +5,7 @@ const resourceLabel = (props) =>{
     return (
         <div className={classes.ResourceLabel} >
             <a className={classes.Tag} 
+            href="#"
             onClick={props.clicked}>{props.value}</a>
         </div>
     )

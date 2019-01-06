@@ -49,9 +49,9 @@ const template = ( props ) =>{
                     e.g. 
                 </li>
             </ul>
-            <input type="text" value="Input File Name" />
+            <input type="text" readOnly value="Input File Name" />
             <input type="button" className={classes.Generate} 
-                onClick={props.displayState} value="Generate" />
+              onClick={props.test} value="Generate" />
         </div>
     )
 } 

@@ -6,7 +6,7 @@ const resourceLabels = ( props ) =>
     props.resourceLabels.map((resourceLabel, index) => {
         return (
             <ResourceLabel value={resourceLabel} 
-            id={index}
+            key={index}
             clicked={(event) => props.clicked(event, index)} />
         )
     })
