@@ -20,8 +20,8 @@ const template = ( props ) =>{
                 </li>
                 <li>
                     <span>Methods</span>
-                    <Methods methodOptions={props.methodOptions}
-                        changed={ props.methodChanged} />
+                    <Methods methodOptions={props.methodOptions} 
+                        clicked={ props.methodClicked } />
                 </li>
                 <li>
                     <span>Version</span>
@@ -49,6 +49,9 @@ const template = ( props ) =>{
                     e.g. 
                 </li>
             </ul>
+            <input type="text" value="Input File Name" />
+            <input type="button" className={classes.Generate} 
+                onClick={props.displayState} value="Generate" />
         </div>
     )
 } 

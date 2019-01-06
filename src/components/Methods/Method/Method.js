@@ -4,12 +4,10 @@ import classes from "./Method.css"
 
 const method = (props) => {
     return (
-        <div className={classes.Method}> {props.value}
+        <div className={classes.Method}
+            id={props.id} > 
             <input type="checkbox" 
-                checked={props.checked}
-                id={props.id}
-                onChange={props.changed} />
-            <span className={classes.Checkmark}></span>
+                onClick={props.clicked} />{props.value}
         </div>
     )
 }

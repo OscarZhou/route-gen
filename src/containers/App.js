@@ -46,20 +46,32 @@ class App extends Component {
     event.target.value= ""
   }
 
-  methodChangedHandler = (event, id) => {
+  methodClickedHandler = (event, id) => {
     const methodIndex = this.state.methodOptions.findIndex(p => {
       return p.id === id;
     });
 
     let methodOption = {...this.state.methodOptions[methodIndex]};
-    methodOption.checked = !methodOption.checked;
+    // if (methodOption.checked == ""){
+    //   methodOption.checked = "checked"
+    // }else{
+    //   methodOption.checked = ""
+    // }
+    methodOption.checked = !methodOption.checked
     const methodOptions = [...this.state.methodOptions];
     methodOptions[methodIndex] = methodOption;
     this.setState({
       methodOptions: methodOptions
     });
+  }
 
-    alert(methodIndex)
+  displayStateHandler = () =>{
+    this.state.methodOptions.map((option, index) => {
+      console.log(option.id)
+      console.log(option.metod)
+      console.log(option.checked)
+
+    })
   }
 
   render() {
@@ -72,8 +84,9 @@ class App extends Component {
           focused={this.focusResourceHandler}
           resourceLabelDeleted={this.deleteResourceHandler}
           resourceLabels={this.state.resourceLabels}
-          methodChanged={this.state.methodChangedHandler}
-          methodOptions={this.state.methodOptions} />
+          methodClicked={this.state.methodClickedHandler}
+          methodOptions={this.state.methodOptions}
+          displayState={this.state.displayStateHandler} />
 
       </div>
     );
