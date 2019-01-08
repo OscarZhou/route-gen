@@ -14,7 +14,8 @@ class App extends Component {
         {id: "4", method:"OPTIONS", checked:false},
         {id: "5", method:"PATCH", checked:false},
         {id: "6", method:"PUT", checked:false}
-      ]
+      ],
+      test: true
   }
 
   appendResourceHandler = () =>{
@@ -45,11 +46,11 @@ class App extends Component {
     event.target.value= ""
   }
 
-  methodClickedHandler = (event, id) => {
+  methodClickedHandler = (id) => {
     const methodIndex = this.state.methodOptions.findIndex(p => {
-      return p.id === id;
+      return p.key === id;
     });
-
+    alert("1")
     let methodOption = {...this.state.methodOptions[methodIndex]};
     // if (methodOption.checked == ""){
     //   methodOption.checked = "checked"
@@ -64,17 +65,22 @@ class App extends Component {
     });
   }
 
-  testHandler = () =>{
-    alert("11111");
-    let states = this.state.methodOptions.map((option) => {
-      return (
-        <span>{option.id}+{option.method}+{option.checked}</span>
-      )
-    });
-    alert(states);
+  testHandler = (event) =>{
+    console.log(event.type)
+    this.setState({
+      test: true
+    })
+    alert("111")
   }
 
   render() {
+    let states = this.state.methodOptions.map((option, index) => {
+        return (
+          <span key={index}>{option.id}+{option.method}+{JSON.stringify(option.checked)}</span>
+        )
+      });
+
+
     return (
       <div className={classes.App}>
         <Template 
@@ -85,8 +91,8 @@ class App extends Component {
           resourceLabels={this.state.resourceLabels}
           methodClicked={this.state.methodClickedHandler}
           methodOptions={this.state.methodOptions}
-          test={this.state.testHandler} />
-
+          testClicked={this.state.testHandler} />
+      {states}
       </div>
     );
   }

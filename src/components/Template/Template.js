@@ -6,7 +6,9 @@ import Methods from '../Methods/Methods.js'
 
 const template = ( props ) =>{
     // let resources = <Resources value={props.value} />
-
+    let methodOptions = null;
+    methodOptions = <Methods values={props.methodOptions} 
+                clicked={ props.methodClicked} />
 
     return (
         <div className={classes.Template}>
@@ -20,8 +22,9 @@ const template = ( props ) =>{
                 </li>
                 <li>
                     <span>Methods</span>
-                    <Methods methodOptions={props.methodOptions} 
-                        clicked={ props.methodClicked } />
+                    {methodOptions}
+                    {/* <Methods methodOptions={props.methodOptions} 
+                        clicked={ props.methodClicked } /> */}
                 </li>
                 <li>
                     <span>Version</span>
@@ -50,8 +53,8 @@ const template = ( props ) =>{
                 </li>
             </ul>
             <input type="text" readOnly value="Input File Name" />
-            <input type="button" className={classes.Generate} 
-              onClick={props.test} value="Generate" />
+            <p className={classes.Generate} 
+              onClick={props.testClicked} >Generate</p>
         </div>
     )
 } 
