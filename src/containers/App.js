@@ -8,12 +8,12 @@ class App extends Component {
       resourceInput: '',
       resourceLabels:[],
       methodOptions:[
-        {id: "1", method:"DELETE", checked:false},
-        {id: "2", method:"GET", checked:false},
-        {id: "3", method:"HEAD", checked:false},
-        {id: "4", method:"OPTIONS", checked:false},
-        {id: "5", method:"PATCH", checked:false},
-        {id: "6", method:"PUT", checked:false}
+        {id: 0, method:"DELETE", checked:false},
+        {id: 1, method:"GET", checked:false},
+        {id: 2, method:"HEAD", checked:false},
+        {id: 3, method:"OPTIONS", checked:false},
+        {id: 4, method:"PATCH", checked:false},
+        {id: 5, method:"PUT", checked:false}
       ],
       test: true
   }
@@ -48,16 +48,11 @@ class App extends Component {
 
   methodClickedHandler = (id) => {
     const methodIndex = this.state.methodOptions.findIndex(p => {
-      return p.key === id;
+      return p.id === id;
     });
-    alert("1")
+
     let methodOption = {...this.state.methodOptions[methodIndex]};
-    // if (methodOption.checked == ""){
-    //   methodOption.checked = "checked"
-    // }else{
-    //   methodOption.checked = ""
-    // }
-    methodOption.checked = !methodOption.checked
+    methodOption.checked = !methodOption.checked;
     const methodOptions = [...this.state.methodOptions];
     methodOptions[methodIndex] = methodOption;
     this.setState({
@@ -65,13 +60,6 @@ class App extends Component {
     });
   }
 
-  testHandler = (event) =>{
-    console.log(event.type)
-    this.setState({
-      test: true
-    })
-    alert("111")
-  }
 
   render() {
     let states = this.state.methodOptions.map((option, index) => {
@@ -89,10 +77,9 @@ class App extends Component {
           focused={this.focusResourceHandler}
           resourceLabelDeleted={this.deleteResourceHandler}
           resourceLabels={this.state.resourceLabels}
-          methodClicked={this.state.methodClickedHandler}
+          methodClicked={this.methodClickedHandler}
           methodOptions={this.state.methodOptions}
           testClicked={this.state.testHandler} />
-      {states}
       </div>
     );
   }

@@ -7,7 +7,7 @@ const resourceLabels = ( props ) =>
         return (
             <ResourceLabel value={resourceLabel} 
             key={index}
-            clicked={(event) => props.clicked(event, index)} />
+            clicked={() => props.clicked( index)} />
         )
     })
 
